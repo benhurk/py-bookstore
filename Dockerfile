@@ -13,6 +13,11 @@ RUN apt-get update && \
 RUN pip install --upgrade pip && \
     pip install poetry
 
+# Install posgres dependencies
+RUN apt-get update \
+    && apt-get -y install libpq-dev gcc \
+    && pip install psycopg2
+
 # Set environment variables
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
