@@ -36,5 +36,6 @@ jobs:
       - name: Test
         env:
           SECRET_KEY: foo
+          SQL_ENGINE: django.db.backends.sqlite3
         run: |
           python -m poetry run python manage.py test
