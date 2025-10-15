@@ -1,23 +1,26 @@
-[tool.poetry]
+[project]
 name = "bookstore"
 version = "0.1.0"
 description = "Bookstore API"
-authors = ["benhur <benhurk2801@gmail.com>"]
+authors = [
+    {name = "benhur",email = "benhurk2801@gmail.com"}
+]
+requires-python = ">=3.12"
+dependencies = [
+    "pytest (>=8.4.1,<9.0.0)",
+    "factory-boy (>=3.3.3,<4.0.0)",
+    "django (>=5.2.5,<6.0.0)",
+    "djangorestframework (>=3.16.1,<4.0.0)",
+    "django-extensions (>=4.1,<5.0)",
+    "django-debug-toolbar (>=6.0.0,<7.0.0)",
+    "psycopg2-binary (>=2.9.10,<3.0.0)"
+]
 
-[tool.poetry.dependencies]
-python = ">=3.12"
-pytest = ">=8.4.1,<9.0.0"
-factory-boy = ">=3.3.3,<4.0.0"
-django = ">=5.2.5,<6.0.0"
-djangorestframework = ">=3.16.1,<4.0.0"
-django-extensions = ">=4.1,<5.0"
-django-debug-toolbar = ">=6.0.0,<7.0.0"
-psycopg2-binary = ">=2.9.10,<3.0.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.group.dev.dependencies]
 pytest-django = "^4.11.1"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
 

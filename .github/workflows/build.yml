@@ -7,7 +7,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [3.8, 3.9]
+        python-version: 3.12
 
     runs-on: ubuntu-latest
 
@@ -23,7 +23,9 @@ jobs:
         run: |
           python -m ensurepip
           python -m pip install --upgrade pip
-          python -m pip install poetry
+          python -m pip uninstall -y poetry || true
+          python -m pip install --upgrade poetry
+          python -m poetry --version
       - name: View poetry --help
         run: poetry --help
 
@@ -33,4 +35,4 @@ jobs:
 
       - name: Test
         run: |
-          poetry run python manage.py test
+          python -m poetry run python manage.py test
